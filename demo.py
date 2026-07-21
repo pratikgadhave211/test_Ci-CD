@@ -14,3 +14,11 @@ def add_numbers(request: AdditionRequest):
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the FastAPI Addition API!"}
+
+class SubtractionRequest(BaseModel):
+    num1: float
+    num2: float
+
+@app.post("/subtract")
+def subtract_numbers(request: SubtractionRequest):
+    return {"result": request.num1 - request.num2}
